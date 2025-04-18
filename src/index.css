@@ -1,0 +1,137 @@
+    :root {
+      --bg-light: linear-gradient(to bottom, #a1c4fd, #c2e9fb);
+      --bg-dark: #1e1e2f;
+      --text-light: #333;
+      --text-dark: #f0f0f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+
+    .app {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    .app.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .language-select,
+    .theme-toggle {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .weather-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 2rem;
+      transition: background 0.3s;
+    }
+
+    .app.dark .weather-card {
+      background-color: rgba(40, 40, 60, 0.9);
+    }
+
+    .weather-icon {
+      font-size: 3rem;
+    }
+
+    .forecast {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .forecast-day {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 1rem;
+      border-radius: 10px;
+      min-width: 100px;
+      transition: background 0.3s;
+    }
+
+    .app.dark .forecast-day {
+      background: rgba(60, 60, 80, 0.8);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (max-width: 575.98px) {
+
+      form,
+      .controls {
+        width: 100%;
+      }
+
+      .controls {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+      }
+
+      .controls>* {
+        width: 100%;
+      }
+    }
