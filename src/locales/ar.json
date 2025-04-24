@@ -26,7 +26,7 @@
   "overcast clouds": "سماء ملبدة بالغيوم",
   "Loading...": "...جارٍ التحميل",
   "Nişf Atrīb": "نصف أتريب",
-  "َQuesna":"قويسنا",
+  "َQuesna": "قويسنا",
   "Quwaysna": "قويسنا",
   "Cairo": "القاهرة",
   "Alexandria": "الاسكندرية",
@@ -90,5 +90,8 @@
   "Macau": "ماكاو",
   "Singapore": "سنغافورة",
   "Madrid": "مدريد",
-  "Barcelona":"برشلونة"
+  "Barcelona": "برشلونة",
+  "Error": "خطأ",
+  "Please allow location access to view the weather data, then refresh the page.": "يرجى السماح بالوصول إلى الموقع لعرض بيانات الطقس، ثم قم بتحديث الصفحة.",
+  "Location Access Denied": "تم رفض الوصول إلى الموقع"
 }

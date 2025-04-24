@@ -1,21 +1,25 @@
 import { Snackbar, Alert, IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import { useSnackbar } from "../contexts/snackbar/SnackbarContext";
 import { useMyTheme } from "../contexts/theme/ThemeContext";
-
-export default function SnackbarAlert({ message, autoHideDuration = 5000 }) {
-  const { openSnackbar, setOpenSnackbar } = useSnackbar();
+import { useDispatch, useSelector } from "react-redux";
+import { closeSnackbar } from "../redux/slices/snackbarSlice";
+import { useTranslation } from "react-i18next";
+export default function SnackbarAlert() {
+  const { open, message } = useSelector((state) => state.snackbar);
+  const dispatch = useDispatch();
   const { myTheme } = useMyTheme();
 
   const handleClose = (_, reason) => {
     if (reason === "clickaway") return;
-    setOpenSnackbar(false);
+    dispatch(closeSnackbar());
   };
+
+  const { t } = useTranslation();
 
   return (
     <Snackbar
-      open={openSnackbar}
-      autoHideDuration={autoHideDuration}
+      open={open}
+      autoHideDuration={5000}
       onClose={handleClose}
       anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >
@@ -37,8 +41,8 @@ export default function SnackbarAlert({ message, autoHideDuration = 5000 }) {
               : "0px 2px 10px rgba(0,0,0,0.1)",
         }}
       >
-        <strong>{message.title}</strong>
-        <div>{message.description}</div>
+        <strong>{t(message.title)}</strong>
+        <div>{t(message.description)}</div>
       </Alert>
     </Snackbar>
   );

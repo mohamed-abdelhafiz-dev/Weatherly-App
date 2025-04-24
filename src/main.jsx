@@ -8,13 +8,17 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Bootstrap JavaScript (inc
 import MyThemeProvider from "./contexts/theme/ThemeProvider.jsx";
 import LanguageProvider from "./contexts/language/LanguageProvider.jsx";
 import App from "./App.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MyThemeProvider>
-      <LanguageProvider>
-        <App />
-      </LanguageProvider>
-    </MyThemeProvider>
+    <Provider store={store}>
+      <MyThemeProvider>
+        <LanguageProvider>
+          <App />
+        </LanguageProvider>
+      </MyThemeProvider>
+    </Provider>
   </StrictMode>
 );

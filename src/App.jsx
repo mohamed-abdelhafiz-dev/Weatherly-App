@@ -5,9 +5,9 @@ import Footer from "./components/Footer";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { useMyTheme } from "./contexts/theme/ThemeContext";
 import { useLanguage } from "./contexts/language/LanguageContext";
-import SnackbarProvider from "./contexts/snackbar/SnackbarProvider";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
+import SnackbarAlert from "./components/SnackbarAlert";
 
 function App() {
   const { i18n } = useTranslation();
@@ -29,17 +29,16 @@ function App() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <SnackbarProvider>
-        <div
-          className={`app ${myTheme}`}
-          dir={language === "arabic" ? "rtl" : "ltr"}
-          lang={language === "arabic" ? "ar" : "en"}
-        >
-          <Header />
-          <Main />
-          <Footer />
-        </div>
-      </SnackbarProvider>
+      <div
+        className={`app ${myTheme}`}
+        dir={language === "arabic" ? "rtl" : "ltr"}
+        lang={language === "arabic" ? "ar" : "en"}
+      >
+        <Header />
+        <Main />
+        <Footer />
+        <SnackbarAlert />
+      </div>
     </ThemeProvider>
   );
 }
